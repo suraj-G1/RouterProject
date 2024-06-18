@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import logo from '../assets/Logo.svg'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';const Navbar = (props) => {
     let isLoggedIn = props.isLoggedIn;
     let setIsLoggedIn = props.setIsLoggedIn;
@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
     <div className='flex gap-4 justify-between max-w-[900px] mx-auto'>
         
         <Link to='/'>
-            <img src={logo} width="160px" height="40" loading='lazy'/>
+            <img src={logo} width="160px" alt='anything' height="40" loading='lazy'/>
         </Link>
 
         <nav>
