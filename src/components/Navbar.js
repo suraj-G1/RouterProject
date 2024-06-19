@@ -34,7 +34,7 @@ import { toast } from 'react-toastify';
             </Link>
             }
 
-            { !isLoggedIn && <Link to='/singup' 
+            { !isLoggedIn && <Link to='/signup' 
             >
                <button>Sign Up</button>
             </Link>}
