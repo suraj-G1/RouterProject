@@ -2,7 +2,8 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import logo from '../assets/Logo.svg'
 import { toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';const Navbar = (props) => {
+  import 'react-toastify/dist/ReactToastify.css';
+  const Navbar = (props) => {
     let isLoggedIn = props.isLoggedIn;
     let setIsLoggedIn = props.setIsLoggedIn;
   return (
@@ -44,12 +45,13 @@ import { toast } from 'react-toastify';
                 toast.success("Logged Out");
                 
             }}>
-               <button className='bg-richblack-800 text-richblack-100  py-[6px] px-[10px] rounded-[8px] border-richblack-700'>Logout</button>
+               <button className='bg-richblack-800 text-richblack-100  py-[6px] px-[10px]
+                rounded-[8px] border-richblack-700'>Logout</button>
             </Link>}
 
 
             { isLoggedIn && <Link to='/dashboard' onClick={()=>{
-                setIsLoggedIn(false);
+                setIsLoggedIn(true);
 
 
             }}>

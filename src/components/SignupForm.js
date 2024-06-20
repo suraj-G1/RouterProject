@@ -6,15 +6,18 @@ import {toast} from 'react-toastify'
 const SignupForm = (props) => {
     let setIsLoggedIn = props.setIsLoggedIn;
     const navigate = useNavigate();
+    const[accountType,setAccountType] = useState("student");
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
     email: "",
     password: "",
     confirmPassword: "",
+
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const[showConfirmPassword,setShowConfirmPassword] = useState(false);
 
   function changeHandler(event) {
     setFormData((prev) => ({
@@ -29,15 +32,27 @@ const SignupForm = (props) => {
         return;
     }
     toast.success("Account Created");
-    setIsLoggedIn(false);
+    setIsLoggedIn(true);
     navigate('/dashboard');
 
   }
   return (
     <div>
-      <div>
-        <button>Student</button>
-        <button>Instructor</button>
+      <div className="flex bg-richblack-800 gap-x-1 my-1 p-1 max-w-max rounded-full">
+        <button 
+        className={`${accountType ==="student"?
+        "bg-richblack-900 text-richblack-5" :
+        "bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}
+        onClick={()=>setAccountType("student")} 
+        
+        >Student</button>
+        <button 
+        className={`${accountType ==="instructor"?
+        "bg-richblack-900 text-richblack-5" :
+        "bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}
+        onClick={()=>setAccountType("instructor")}
+        
+        >Instructor</button>
       </div>
 
       <form onSubmit={submitHandler}  className="flex flex-col w-full">
@@ -116,15 +131,15 @@ const SignupForm = (props) => {
             </p>
             <input
               required
-              type="text"
+              type={showConfirmPassword?"text":"password"}
               placeholder="Confirm Password"
               value={formData.confirmPassword}
               name="confirmPassword"
               onChange={changeHandler}
               className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[8px] shadow-sm'
             ></input>
-            <span onClick={() => setShowPassword((prev) => !prev)} className='absolute right-3 cursor-pointer top-[38px]'>
-              {showPassword ? <AiOutlineEye fontFamily={34} fill='#AFB2BF'/> : <AiOutlineEyeInvisible fontFamily={34} fill='#AFB2BF' />}
+            <span onClick={() => setShowConfirmPassword((prev) => !prev)} className='absolute right-3 cursor-pointer top-[38px]'>
+              {showConfirmPassword ? <AiOutlineEye fontFamily={34} fill='#AFB2BF'/> : <AiOutlineEyeInvisible fontFamily={34} fill='#AFB2BF' />}
             </span>
           </label>
         </div>

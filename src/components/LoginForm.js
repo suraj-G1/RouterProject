@@ -48,7 +48,7 @@ const LoginForm = (props) => {
             <Link className='w-full ml-auto text-xs text-blue-100 '>Forgot Password</Link>
         </label>
 
-        <button className='w- full bg-yellow-50 rounded-[8px] py-[8px] px-[12px] font-medium text-black'> Sign In</button>
+        <button className='bg-yellow-50 rounded-[8px] py-[8px] px-[12px] font-medium text-black'> Sign In</button>
 
     </form>
   )
