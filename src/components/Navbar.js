@@ -6,14 +6,14 @@ import { toast } from 'react-toastify';
     let isLoggedIn = props.isLoggedIn;
     let setIsLoggedIn = props.setIsLoggedIn;
   return (
-    <div className='flex gap-4 justify-between max-w-[900px] mx-auto'>
+    <div className='flex justify-between items-center w-8/12 max-w-[1160px] py-4 mx-auto'>
         
         <Link to='/'>
             <img src={logo} width="160px" alt='anything' height="40" loading='lazy'/>
         </Link>
 
         <nav>
-            <ul className='flex gap-4 ' >
+            <ul className='flex gap-x-6 text-richblack-100 ' >
                 <li>
                     <Link to='/'>Home</Link>
                 </li>
@@ -28,15 +28,15 @@ import { toast } from 'react-toastify';
             </ul>
         </nav>
 
-        <div className='flex gap-4'>
+        <div className='flex items-center gap-x-4'>
             { !isLoggedIn &&<Link to='/login'>
-               <button>Login</button>
+               <button className='bg-richblack-800 text-richblack-100  py-[6px] px-[10px] rounded-[8px] border-richblack-700'>Login</button>
             </Link>
             }
 
             { !isLoggedIn && <Link to='/signup' 
             >
-               <button>Sign Up</button>
+               <button className='bg-richblack-800 text-richblack-100  py-[6px] px-[10px] rounded-[8px] border-richblack-700'>Sign Up</button>
             </Link>}
 
             { isLoggedIn && <Link to='/' onClick={()=>{
@@ -44,7 +44,7 @@ import { toast } from 'react-toastify';
                 toast.success("Logged Out");
                 
             }}>
-               <button>Logout</button>
+               <button className='bg-richblack-800 text-richblack-100  py-[6px] px-[10px] rounded-[8px] border-richblack-700'>Logout</button>
             </Link>}
 
 
@@ -53,7 +53,7 @@ import { toast } from 'react-toastify';
 
 
             }}>
-               <button>Dashboard</button>
+               <button className='bg-richblack-800 text-richblack-100  py-[6px] px-[10px] rounded-[8px] border-richblack-700'>Dashboard</button>
             </Link>}
         </div>
     </div>

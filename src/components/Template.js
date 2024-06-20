@@ -2,31 +2,33 @@ import React from "react";
 import frameImage from "../assets/frame.png";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
-
+import {FcGoogle} from 'react-icons/fc'
 const Template = ({title, desc1, desc2, image, formtype, setIsLoggedIn}) => {
   return (
-    <div className="flex w-8/12 mx-auto mt-8 justify-between">
-      <div className="flex flex-col  gap-4">
-        <h1 className="text-3xl font-bold">{title}</h1>
-        <p className="flex flex-col gap-1">
-          <span>{desc1}</span>
-          <span className="text-blue-600">{desc2}</span>
+    <div className="flex justify-between w-8/12 max-w[1160px] py-12  gap-y-0 mx-auto">
+      <div className="w-8/12 max-w-[400px]">
+        <h1 className="text-[1.75rem] font-semibold text-richblack-5 leading-[2.3rem]">{title}</h1>
+        <p className="flex flex-col gap-1 text-[1.125rem] leading-[1.625rem] mt-4">
+          <span className="text-richblack-100">{desc1}</span>
+          <span className="text-blue-100 italic">{desc2}</span>
         </p>
 
         {formtype === "signup" ? <SignupForm setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
-        <div className="flex items-center gap-[4px]">
-          <div className="bg-black w-full h-[2px]"></div>
-          <p className="text-black font-bold">OR</p>
-          <div className="bg-black w-full h-[2px]"></div>
+        <div className="flex  w-full items-center gap-x-2 my-4">
+          <div className="bg-richblack-700 w-full h-[1px]"></div>
+          <p className="text-richblack-700 font-medium leading-[1.375rem]">OR</p>
+          <div className="bg-richblack-700 w-full h-[1px]"></div>
         </div>
-        <button>
+        <button  className="w-full flex justify-center items-center rounded-[8px] font-medium
+         text-richblack-100 border border-richblack-100 px-[10px] py-[6px] gap-x-2 mt-4">
+            <FcGoogle/>
           <p>Sign Up With Google</p>
         </button>
       </div>
 
-      <div className="relative">
-        <img className="z-20 top-1 left-1" src={frameImage} alt="Pattern" height="558px" width="504px" loading="lazy"/>
-        <img className=" absolute z-100 top-0 rounded-3xl" src={image} alt="Pattern" height="558px" width="504px" loading="lazy"/>
+      <div className="relative w-8/12 max-w-[400px] mt-4">
+        <img className="" src={frameImage} alt="Pattern" height="558px" width="504px" loading="lazy"/>
+        <img className=" absolute -top-4 right-4" src={image} alt="Pattern" height="558px" width="504px" loading="lazy"/>
       </div>
     </div>
   );

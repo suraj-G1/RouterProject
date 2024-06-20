@@ -40,11 +40,11 @@ const SignupForm = (props) => {
         <button>Instructor</button>
       </div>
 
-      <form onSubmit={submitHandler}>
-        <div>
+      <form onSubmit={submitHandler}  className="flex flex-col w-full">
+        <div className="flex justify-between gap-x-4 mt-3">
           <label>
-            <p>
-              First Name <sup>*</sup>
+            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>
+              First Name <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -53,12 +53,13 @@ const SignupForm = (props) => {
               value={formData.firstname}
               name="firstname"
               onChange={changeHandler}
+              className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[8px] shadow-sm'
             ></input>
           </label>
 
           <label>
-            <p>
-              Last Name <sup>*</sup>
+            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>
+              Last Name <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -67,14 +68,16 @@ const SignupForm = (props) => {
               value={formData.lastname}
               name="lastname"
               onChange={changeHandler}
+
+              className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[8px] shadow-sm'
             ></input>
           </label>
         </div>
 
-        <div>
+        <div className="w-full mt-3">
           <label>
-            <p>
-              Email Address <sup>*</sup>
+            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>
+              Email Address <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -83,12 +86,15 @@ const SignupForm = (props) => {
               value={formData.email}
               name="email"
               onChange={changeHandler}
+              className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[8px] shadow-sm'
             ></input>
           </label>
+        </div>
+        <div className="flex justify-between gap-x-4 mt-3">
 
-          <label>
-            <p>
-              Password <sup>*</sup>
+          <label className="relative">
+            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>
+              Password <sup className="text-pink-200">*</sup>
             </p>
             <input
               required
@@ -97,15 +103,16 @@ const SignupForm = (props) => {
               value={formData.password}
               name="password"
               onChange={changeHandler}
+              className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[8px] shadow-sm'
             ></input>
-            <span onClick={() => setShowPassword((prev) => !prev)}>
-              {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            <span onClick={() => setShowPassword((prev) => !prev)} className='absolute right-3 cursor-pointer top-[38px]'>
+              {showPassword ? <AiOutlineEye fontFamily={34} fill='#AFB2BF'/> : <AiOutlineEyeInvisible fontFamily={34} fill='#AFB2BF'/>}
             </span>
           </label>
 
-          <label>
-            <p>
-              Confirm Password <sup>*</sup>
+          <label className="relative">
+            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>
+              Confirm Password <sup text-pink-200>*</sup>
             </p>
             <input
               required
@@ -114,14 +121,15 @@ const SignupForm = (props) => {
               value={formData.confirmPassword}
               name="confirmPassword"
               onChange={changeHandler}
+              className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[8px] shadow-sm'
             ></input>
-            <span onClick={() => setShowPassword((prev) => !prev)}>
-              {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+            <span onClick={() => setShowPassword((prev) => !prev)} className='absolute right-3 cursor-pointer top-[38px]'>
+              {showPassword ? <AiOutlineEye fontFamily={34} fill='#AFB2BF'/> : <AiOutlineEyeInvisible fontFamily={34} fill='#AFB2BF' />}
             </span>
           </label>
         </div>
 
-        <button>Create Account</button>
+        <button className='bg-yellow-50 rounded-[8px] py-[8px] px-[12px] font-medium text-black mt-4'>Create Account</button>
       </form>
     </div>
   );
